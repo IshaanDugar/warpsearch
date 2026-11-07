@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WarpSearch Beta</title>
+<meta name="description" content="Search your own notes and documents on your laptop, and let your AI assistant answer from them with the exact page, using far fewer tokens.">
+<style>
+  :root { --bg:#fbfaf8; --fg:#1d1d1f; --muted:#6b6b70; --card:#ffffff; --line:#e6e4df; --accent:#3b5bdb; --accent-fg:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#141416; --fg:#ececee; --muted:#9a9aa2; --card:#1c1c20; --line:#2c2c32; --accent:#7c94ff; --accent-fg:#0d0d10; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 56px 16px 64px; }
+  h1 { font-size: 2.2rem; line-height:1.2; margin: 0 0 12px; letter-spacing:-0.02em; }
+  .tag { display:inline-block; font-size:.8rem; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:2px 10px; margin-bottom:16px; }
+  .lead { font-size:1.15rem; color:var(--muted); margin:0 0 28px; }
+  .btn { display:inline-block; background:var(--accent); color:var(--accent-fg); text-decoration:none; font-weight:600; padding:14px 22px; border-radius:10px; }
+  .sub { color:var(--muted); font-size:.9rem; margin-top:10px; }
+  section { margin-top: 40px; }
+  h2 { font-size:1.15rem; margin:0 0 10px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; }
+  ol, ul { padding-left: 1.2rem; margin: 0; }
+  li { margin: 6px 0; }
+  a { color: var(--accent); }
+  footer { margin-top:48px; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:16px; }
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">Beta · Windows 10/11 · free test build</span>
+  <h1>WarpSearch Beta</h1>
+  <p class="lead">Your AI assistant answers from your own notes, slides and documents, with the exact file and page, without uploading them and with far fewer tokens. Everything runs on your laptop.</p>
+  <a class="btn" href="https://github.com/IshaanDugar/warpsearch/releases/latest/download/WarpSearch-Beta-Setup.exe">Download for Windows</a>
+  <p class="sub">About 130 MB. Installs for your user only, no admin needed. Updates itself.</p>
+
+  <section>
+    <h2>Set up in two minutes</h2>
+    <div class="card">
+      <ol>
+        <li>Run <b>WarpSearch-Beta-Setup.exe</b>. If Windows warns you, click "More info", then "Run anyway".</li>
+        <li>Pick the folders with your notes, agree to the beta terms, and press Start.</li>
+        <li>WarpSearch connects itself to Claude Desktop, Claude Code and Codex if you have them. Restart Claude Desktop fully (quit it from the tray).</li>
+        <li>Ask your assistant: "Using WarpSearch, what did my notes say about &lt;topic&gt;? Cite the page."</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2>What it does</h2>
+    <ul>
+      <li>Finds the exact page or slide, and says "not in your notes" instead of guessing.</li>
+      <li>Reads PDF, Word, PowerPoint, Excel, text and Markdown, including scanned pages.</li>
+      <li>Keeps up with new and changed files by itself.</li>
+      <li>The tray menu's "Activity" shows how many tokens it saved your assistant (estimated).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Before you install</h2>
+    <div class="card">
+      <p style="margin:0 0 8px">This is a test build. It stops working on <b>21 November 2026</b> unless a newer update moves the date. While you test, it sends usage data to the developer, including what you ask, file names and text from your notes that it returns to your assistant. To stop, uninstall it.</p>
+      <p style="margin:0">Read the <a href="TERMS.txt">beta terms</a> and the <a href="README_BETA.txt">full README</a> (what is sent, how to delete it).</p>
+    </div>
+  </section>
+
+  <footer>WarpSearch Beta by Ishaan. Not affiliated with Anthropic or OpenAI; Claude and Codex are named only to say what it works with.</footer>
+</main>
+</body>
+</html>
