@@ -2,91 +2,159 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WarpSearch Beta</title>
-<meta name="description" content="Give your AI the exact page and skip the other 49. WarpSearch reads your notes once, on your laptop, so Claude and Codex answer with about 4x fewer tokens.">
-<style>
-  :root { --bg:#fbfaf8; --fg:#1d1d1f; --muted:#6b6b70; --card:#ffffff; --line:#e6e4df; --accent:#3b5bdb; --accent-fg:#fff; --soft:#eef1fd; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg:#141416; --fg:#ececee; --muted:#9a9aa2; --card:#1c1c20; --line:#2c2c32; --accent:#7c94ff; --accent-fg:#0d0d10; --soft:#1f2236; }
-  }
-  * { box-sizing: border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  main { max-width: 700px; margin: 0 auto; padding: 56px 16px 64px; }
-  h1 { font-size: clamp(2rem, 6vw, 2.8rem); line-height:1.1; margin: 0 0 16px; letter-spacing:-0.025em; }
-  .tag { display:inline-block; font-size:.8rem; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:2px 10px; margin-bottom:18px; }
-  .lead { font-size:1.15rem; color:var(--muted); margin:0 0 28px; }
-  .btn { display:inline-block; background:var(--accent); color:var(--accent-fg); text-decoration:none; font-weight:650; padding:15px 26px; border-radius:11px; font-size:1.05rem; }
-  .sub { color:var(--muted); font-size:.9rem; margin-top:10px; }
-  .stats { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:36px; }
-  .stat { background:var(--soft); border-radius:12px; padding:16px; }
-  .stat b { display:block; font-size:1.6rem; line-height:1.2; }
-  .stat span { color:var(--muted); font-size:.88rem; }
-  .note { color:var(--muted); font-size:.8rem; margin-top:8px; }
-  @media (max-width: 520px) { .stats { grid-template-columns: 1fr; } }
-  section { margin-top: 44px; }
-  h2 { font-size:1.2rem; margin:0 0 12px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; }
-  .card p { margin:0; }
-  ol, ul { padding-left: 1.2rem; margin: 0; }
-  li { margin: 7px 0; }
-  a { color: var(--accent); }
-  .fine { font-size:.92rem; color:var(--muted); }
-  .again { text-align:center; margin-top:44px; }
-  footer { margin-top:48px; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:16px; }
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zarp</title>
+<meta name="description" content="Your AI asks Zarp and gets the one page that answers. Reads your notes once, on your laptop. About a quarter of the tokens.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230d1013'/%3E%3Cpath d='M20 27H70L30 73H58' fill='none' stroke='%23f7b83d' stroke-width='13'/%3E%3Crect x='68' y='66.5' width='13' height='13' fill='%23f7b83d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<main>
-  <span class="tag">Free beta · Windows 10/11 · runs on your laptop</span>
-  <h1>Give your AI the exact page. Skip the other 49.</h1>
-  <p class="lead">You know the routine: upload the PDF, wait, hit your usage limit, upload it all again tomorrow. WarpSearch ends that. It reads your notes, slides and docs once, right on your laptop. From then on, Claude or Codex just asks it and gets back the one page that answers you, page number included.</p>
-  <a class="btn" href="https://github.com/IshaanDugar/warpsearch/releases/latest/download/WarpSearch-Beta-Setup.exe">Download for Windows</a>
-  <p class="sub">130 MB · no admin needed · updates itself</p>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 100 100">
+    <path d="M20 27H70L30 73H58" fill="none" stroke="currentColor" stroke-width="13"/>
+    <rect x="68" y="66.5" width="13" height="13" fill="currentColor"/>
+  </symbol>
+</svg>
 
-  <div class="stats">
-    <div class="stat"><b>~4x</b><span>fewer tokens per answer</span></div>
-    <div class="stat"><b>12 / 12</b><span>answers right, each with its page</span></div>
-    <div class="stat"><b>~7 s</b><span>per answer, vs ~11 s reading the files</span></div>
-  </div>
-  <p class="note">Our test: Claude Sonnet, 12 questions on a set of study notes, with and without WarpSearch. Your numbers will vary with your files.</p>
-
-  <section>
-    <h2>Why you'll keep it</h2>
+<div class="wrap">
+  <nav class="mast" aria-label="main">
+    <a class="brand" href="#top" aria-label="Zarp home"><svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>zarp</a>
     <ul>
-      <li><b>Your usage limits go a lot further.</b> Your assistant reads one page instead of whole files.</li>
-      <li><b>Answers come with receipts.</b> File and page, so you can open it and check.</li>
-      <li><b>It won't bluff.</b> If it isn't in your notes, it tells you.</li>
-      <li><b>Throw anything at it.</b> PDFs (even scans), slides, Word, Excel, Markdown.</li>
-      <li><b>Set it and forget it.</b> New files get picked up within a minute, and the app updates itself.</li>
-      <li><b>Watch the savings add up.</b> "Activity" in the tray shows roughly how many tokens it has saved you.</li>
+      <li><a href="#how">how it works</a></li>
+      <li><a href="#numbers">the numbers</a></li>
+      <li><a href="#get">get it</a></li>
     </ul>
-  </section>
+    <a class="btn btn--secondary" href="https://github.com/IshaanDugar/warpsearch/releases/latest/download/WarpSearch-Beta-Setup.exe">download</a>
+  </nav>
 
-  <section>
-    <h2>Up and running before your coffee cools</h2>
-    <div class="card">
-      <ol>
-        <li>Run the installer. If Windows says it protected your PC, click <b>More info</b>, then <b>Run anyway</b>. Beta builds aren't signed yet.</li>
-        <li>Pick the folders with your notes and press Start.</li>
-        <li>Quit Claude Desktop from the tray and open it again. On Claude Code or Codex, start a new session.</li>
-        <li>Ask: "Using WarpSearch, what did my notes say about &lt;topic&gt;? Cite the page."</li>
-      </ol>
+  <main id="top">
+    <header class="hero">
+      <div class="hero-text">
+        <h1>skip 49 pages. <span class="verb">zarp</span> to one.</h1>
+        <p>Your AI asks Zarp and gets back the one page that answers.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="https://github.com/IshaanDugar/warpsearch/releases/latest/download/WarpSearch-Beta-Setup.exe">download for windows</a>
+          <a class="btn btn--secondary" href="#how">how it works</a>
+        </div>
+        <p class="small">It’s a free beta for Windows 10 and 11, and you don’t need admin rights.</p>
+      </div>
+
+      <figure class="well chat" aria-label="An example: Claude asking Zarp about lecture notes">
+        <div class="chat-head"><span class="tab tab--on">claude</span><span class="tab">example chat</span></div>
+        <div class="chat-body">
+          <p class="ask">What did my lecture say about pipeline hazards? Cite the page.</p>
+          <div class="call">
+            <span class="readout"><b>zarp</b> context "pipeline hazards"</span>
+            <span class="readout">found in your notes, 1 call</span>
+          </div>
+          <div>
+            <p class="answer">A data hazard is when an instruction needs a result the one before it hasn’t written yet. Forwarding fixes most of them. Loads still cost you one stall.</p>
+            <span class="cite">week6_pipelining.pdf, page 14</span>
+          </div>
+        </div>
+        <figcaption class="chat-foot readout">sample notes, made up for this page</figcaption>
+      </figure>
+    </header>
+
+    <section id="how" class="split split--lead">
+      <div class="text">
+        <h2>the long way is a bonfire.</h2>
+        <p>You upload the PDF. Your assistant reads all fifty pages to quote one line. You hit your limit by lunch, and tomorrow you do it all again.</p>
+        <p>Zarp reads your files once, on your laptop. After that your assistant just asks it, and gets the page.</p>
+      </div>
+      <div class="well blueprint paths" role="img" aria-label="The long way takes four steps; with Zarp, you ask and get the page.">
+        <div class="path">
+          <span class="path-name">the long way</span>
+          <div class="path-row">
+            <span class="node">upload the pdf</span><span class="link"></span>
+            <span class="node">read 50 pages</span><span class="link"></span>
+            <span class="node">hit your limit</span><span class="link"></span>
+            <span class="node">repeat tomorrow</span>
+          </div>
+        </div>
+        <div class="path path--zarp">
+          <span class="path-name">with zarp</span>
+          <div class="path-row">
+            <span class="node">ask</span><span class="link"><span>already read, on your laptop</span></span>
+            <span class="node">the page</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="numbers" class="split">
+      <div class="text">
+        <h2>i timed it, obviously.</h2>
+        <p>I asked Claude Sonnet the same twelve questions about the same notes, once with Zarp and once without. Both runs got all twelve right. One of them used about a quarter of the tokens.</p>
+        <p class="small">That’s one test on a small set of notes, so your numbers will be different.</p>
+      </div>
+      <div class="figures">
+        <div class="well figure"><strong>0.27×</strong><span class="readout">the tokens. 12k instead of 44k</span></div>
+        <div class="well figure"><strong>1</strong><span class="readout">tool call, instead of about 4</span></div>
+        <div class="well figure"><strong>6.9 s</strong><span class="readout">per answer, instead of 10.9 s</span></div>
+        <div class="well figure"><strong>12/12</strong><span class="readout">right, with the page to prove it</span></div>
+      </div>
+    </section>
+
+    <section class="moments" aria-label="What it does">
+      <div class="split">
+        <div class="text">
+          <h3>receipts, every time.</h3>
+          <p>Every answer comes with the file and the page, so you can open it and check. Go ahead, feel a little smug.</p>
+        </div>
+        <div class="well proof"><span class="readout">source</span><span class="cite">week6_pipelining.pdf, page 14</span></div>
+      </div>
+      <div class="split">
+        <div class="text">
+          <h3>it won't bluff.</h3>
+          <p>If it isn’t in your notes, Zarp says so. Your assistant doesn’t get to make something up and pin it on your lecturer.</p>
+        </div>
+        <div class="well proof"><span class="readout">status</span><span class="readout"><b>not in your notes</b></span></div>
+      </div>
+    </section>
+
+    <section id="get" class="split">
+      <div class="text">
+        <h2>up and running before your coffee cools.</h2>
+        <p>Install it, pick the folders your notes live in, and press start. Zarp connects itself to your assistants. Restart Claude Desktop once and you’re done.</p>
+        <ul class="needs">
+          <li><span>runs on</span><span>Windows 10 or 11. Mac isn’t ready yet, sorry.</span></li>
+          <li><span>reads</span><span>PDFs (scanned ones too), slides, Word, Excel and Markdown. New files show up within a minute.</span></li>
+          <li><span>works with</span><span>Claude Desktop, Claude Code and Codex</span></li>
+          <li><span>size</span><span>About 130 MB, and it updates itself</span></li>
+          <li><span>new name</span><span>Zarp used to be called WarpSearch, and the installer still says so until the next update. It’s the same app.</span></li>
+          <li><span>heads up</span><span>Windows may say it protected your PC. Click more info, then run anyway. Signing certificates cost money, and the beta is free.</span></li>
+        </ul>
+      </div>
+      <div class="well blueprint closer">
+        <svg aria-hidden="true" style="color: var(--color-accent)"><use href="#mark"/></svg>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="text">
+        <h2>go on, give it a page.</h2>
+        <div class="actions">
+          <a class="btn btn--primary" href="https://github.com/IshaanDugar/warpsearch/releases/latest/download/WarpSearch-Beta-Setup.exe">download for windows</a>
+        </div>
+      </div>
+      <p class="fine">This is a test build. It stops working on 21 November 2026 unless an update moves the date. While you test, it sends me usage data: your questions, file names, and the bits of your notes it hands your assistant. Uninstall it to stop. <a href="TERMS.txt">Beta terms</a>. <a href="README_BETA.txt">Exactly what gets sent</a>.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-word" aria-hidden="true">zarp<span>.</span></div>
+    <div class="foot-row">
+      <span>Made by Ishaan in Singapore. Not affiliated with Anthropic or OpenAI.</span>
+      <ul>
+        <li><a href="TERMS.txt">terms</a></li>
+        <li><a href="README_BETA.txt">what gets sent</a></li>
+      </ul>
     </div>
-  </section>
-
-  <div class="again">
-    <a class="btn" href="https://github.com/IshaanDugar/warpsearch/releases/latest/download/WarpSearch-Beta-Setup.exe">Get WarpSearch Beta</a>
-  </div>
-
-  <section>
-    <h2>The fine print</h2>
-    <div class="card fine">
-      <p>This is a test build. It stops working on 21 November 2026, unless an update moves the date. While you test, it sends me usage data, including your questions, file names and the bits of your notes it gives your assistant. Uninstall it to stop. <a href="TERMS.txt">Beta terms</a> · <a href="README_BETA.txt">What exactly is sent</a></p>
-    </div>
-  </section>
-
-  <footer>Made by Ishaan. Not affiliated with Anthropic or OpenAI.</footer>
-</main>
+  </footer>
+</div>
 </body>
 </html>

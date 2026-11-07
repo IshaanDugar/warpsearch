@@ -1,9 +1,9 @@
-WarpSearch Beta - Terms of use
+Zarp Beta - Terms of use
 
-1. What this is. A free test copy of WarpSearch, given to you to try. It is provided "as is", with no warranty of
+1. What this is. A free test copy of Zarp, given to you to try. It is provided "as is", with no warranty of
    any kind. It may have bugs.
 2. No liability. To the extent the law allows, the developer is not responsible for any loss of data or damage
-   that comes from using or not being able to use this test copy. WarpSearch only reads your files; it never
+   that comes from using or not being able to use this test copy. Zarp only reads your files; it never
    changes them. Keep your own backups anyway.
 3. Personal testing only. Use it only to test it for yourself. Do not copy it to others, share the installer,
    sell it, rent it out, or take it apart (decompile, disassemble, extract or reverse-engineer it, by hand or with any tool, including AI tools).
@@ -11,7 +11,7 @@ WarpSearch Beta - Terms of use
 5. Feedback. The developer may use the feedback you send to improve the product, without paying you or
    crediting you.
 6. Data sharing. This test copy sends usage data to the developer, including what you search for, file names
-   and text from your notes, and what an AI assistant asks for and receives through WarpSearch. What is sent and
+   and text from your notes, and what an AI assistant asks for and receives through Zarp. What is sent and
    how to stop it are set out in the Data sharing section of README_BETA.txt. Uninstalling stops it.
 7. Law. These terms are governed by the law of Singapore.
 

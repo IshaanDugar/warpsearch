@@ -1,7 +1,9 @@
-# WarpSearch Beta
+# Zarp
 
-Download page: https://ishaandugar.github.io/warpsearch
+Your AI asks Zarp and gets back the one page that answers.
 
-This repository only hosts the beta's download page and its releases (installer and signed update manifest). It contains no source code.
+Download page: https://ishaandugar.github.io/zarp
 
-Latest installer: https://github.com/IshaanDugar/warpsearch/releases/latest/download/WarpSearch-Beta-Setup.exe
+This repository only hosts the download page and the beta's releases (the installer and the signed update manifest). The source code lives elsewhere.
+
+Zarp used to be called WarpSearch. Installed copies keep updating from this repository.

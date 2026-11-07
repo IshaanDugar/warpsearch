@@ -1,8 +1,8 @@
-WarpSearch Beta
+Zarp Beta
 
 Your AI, straight to the right page. At a quarter of the tokens.
 
-Stop uploading the same PDFs over and over. WarpSearch learns your notes, slides and docs once, on your laptop,
+Stop uploading the same PDFs over and over. Zarp learns your notes, slides and docs once, on your laptop,
 then hands Claude or Codex the exact page that answers your question. In our tests Claude got every answer right
 using about 4x fewer tokens, and finished faster. If something isn't in your notes, it says so instead of guessing.
 
@@ -12,10 +12,10 @@ the test early. Your files are only read, never changed.
 
 INSTALL (WINDOWS), ABOUT TWO MINUTES
 
-1. Run WarpSearch-Beta-Setup.exe. If Windows says it protected your PC, click "More info", then "Run anyway".
+1. Run Zarp-Beta-Setup.exe. If Windows says it protected your PC, click "More info", then "Run anyway".
 2. Pick the folders with your notes, tick the terms box, press Start.
 3. Quit Claude Desktop from the tray and open it again. On Claude Code or Codex, start a new session.
-4. Ask: "Using WarpSearch, what did my notes say about <topic>? Cite the page."
+4. Ask: "Using Zarp, what did my notes say about <topic>? Cite the page."
 
 Nothing connected? Right-click the tray icon > "Connect to Claude / Codex...".
 
@@ -28,7 +28,7 @@ GOOD TO KNOW
 - No AI handy? Ctrl+Alt+Space opens a search box.
 - It reads PDF (scans too), .docx, .pptx, .xlsx/.xls, pictures with text, .txt and .md. Old .doc and .ppt files
   need saving as .docx/.pptx first. English only.
-- Got a wrong answer? Tell your assistant: "Report to WarpSearch: wrong, the answer is ... on page ...".
+- Got a wrong answer? Tell your assistant: "Report to Zarp: wrong, the answer is ... on page ...".
   That helps me more than anything else.
 
 
@@ -39,9 +39,9 @@ There's no off switch in this test build; uninstalling stops it. Everyone testin
 From the search box: what you type (cut at 2000 characters), how long the search took, the top 5 results (file name,
 page, score), whether it said "not in your notes", what you did with a result (open, pin, copy), thumbs and feedback.
 
-From your AI assistant: its name and version, every request it makes, and the full reply WarpSearch gave it, which
+From your AI assistant: its name and version, every request it makes, and the full reply Zarp gave it, which
 includes text from your notes with file name and page. Timings, errors and the ranked candidate files too. If you
-use "Report to WarpSearch": your verdict, your note and the full text of the pages involved.
+use "Report to Zarp": your verdict, your note and the full text of the pages involved.
 
 About your setup: file names as "folder/sub/file.pdf" (never full paths), counts and sizes per file type, index
 and search timings, your OS, CPU, RAM, free disk, screen size, language, app version, setup steps, menu use, update
@@ -57,7 +57,7 @@ The update check sends nothing except the app version.
 
 UNINSTALL
 
-Settings > Apps > WarpSearch Beta > Uninstall. It asks whether to delete your index and settings too.
+Settings > Apps > Zarp Beta > Uninstall. It asks whether to delete your index and settings too.
 They live in %LOCALAPPDATA%\DiskAI-Beta if you want to remove them yourself.
 
 
