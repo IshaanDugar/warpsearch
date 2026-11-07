@@ -157,26 +157,22 @@
     <section id="install" class="split split--top">
       <div class="text">
         <h2>go on, give it a page.</h2>
-        <p>Five quick things first, so nothing surprises you later.</p>
+        <p>You’re in the beta through the sign-up form, so this is just a quick reminder before you install.</p>
         <fieldset class="agree" id="agree">
-          <legend class="small">Tick all five and the install appears.</legend>
-          <label><input type="checkbox" required> <span>Zarp only reads my files. It never changes, moves or deletes them.</span></label>
-          <label><input type="checkbox" required> <span>While I test, Zarp sends Ishaan my questions, file names, timings, and the snippets of my notes it hands my AI. He uses them only to fix bugs and make the answers better, and never sells or shares them.</span></label>
-          <label><input type="checkbox" required> <span>I’ll pick my folders on purpose and leave out anything medical, financial, confidential or full of passwords.</span></label>
-          <label><input type="checkbox" required> <span>It’s a beta. It can stop working at any time, and it ends on 21 November 2026 unless an update moves the date.</span></label>
-          <label><input type="checkbox" required> <span>It’s for my own testing. I won’t pass the installer around, and I’ve read the <a href="TERMS.txt">beta terms</a>.</span></label>
+          <legend class="small">One tick and you’re good to go.</legend>
+          <label><input type="checkbox" required> <span>Got it: this is a beta, so things might break, and it ends on 21 November 2026 unless an update moves the date. While I test, Zarp shares how it answers with Ishaan (questions, file names, the snippets it hands my AI) so he can make it better. It’s never sold or shared. <a href="TERMS.txt">Beta terms</a>.</span></label>
         </fieldset>
       </div>
 
       <div class="get" id="get">
         <div class="well get-card">
           <h3>the easy way</h3>
-          <p>Open PowerShell, paste this line and press Enter. It downloads Zarp from GitHub, checks it against the published checksum, and starts the installer. No scary Windows warning.</p>
+          <p>Open PowerShell, paste this line and press Enter. It downloads Zarp, checks it against the published checksum and installs it with no clicks and no scary Windows warning. Then Zarp opens and asks which folders to read.</p>
           <div class="shell-row">
             <input id="ps-line" class="shell-cmd" readonly aria-label="PowerShell install command" value="irm https://ishaandugar.github.io/zarp/install.ps1 | iex">
             <button class="btn btn--primary shell-copy" type="button" id="ps-copy" data-gated>copy</button>
           </div>
-          <p class="small" id="gate-note" aria-live="polite">Tick all five boxes above first.</p>
+          <p class="small" id="gate-note" aria-live="polite">Tick the box on the left first.</p>
         </div>
         <div class="get-alt">
           <p class="small">Prefer clicking? <a href="https://github.com/IshaanDugar/zarp/releases/latest/download/WarpSearch-Beta-Setup.exe" id="exe-link" data-gated>Download the .exe instead.</a> Windows will probably say it protected your PC, because beta builds aren’t signed yet (a signing certificate costs money and the beta is free). Click More info, then Run anyway.</p>
@@ -209,7 +205,7 @@
     const open = ok();
     gated.forEach((el) => { el.setAttribute('aria-disabled', String(!open)); if (el.tagName === 'BUTTON') el.disabled = !open; });
     box.classList.toggle('is-locked', !open);
-    if (note) note.textContent = open ? 'All set. Thanks for reading.' : 'Tick all five boxes above first.';
+    if (note) note.textContent = open ? 'All set. Thanks for reading.' : 'Tick the box on the left first.';
   };
   boxes.forEach((b) => b.addEventListener('change', sync));
   sync();

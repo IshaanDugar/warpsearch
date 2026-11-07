@@ -41,8 +41,23 @@ if ($hash -ne $win.sha256.ToLowerInvariant()) {
     return
 }
 
-Write-Host '  checksum matches. starting the installer...'
-Start-Process -FilePath $target -Wait
+Write-Host '  checksum matches. installing (about 30 seconds, no clicks needed)...'
+# /SILENT shows a small progress bar and skips every wizard page. The installer
+# then starts Zarp, which opens its setup window on the first run.
+$p = Start-Process -FilePath $target -ArgumentList '/SILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-' -Wait -PassThru
 Remove-Item $target -Force -ErrorAction SilentlyContinue
-Write-Host '  done. pick your folders in the window that opened, and you are set.' -ForegroundColor Yellow
+if ($p.ExitCode -ne 0) {
+    Write-Host ("  The installer stopped with code {0}. Close Zarp from the tray if it's open, then run this line again." -f $p.ExitCode) -ForegroundColor Red
+    return
+}
+
+Write-Host ''
+Write-Host '  installed. the setup window opens in a few seconds:' -ForegroundColor Yellow
+Write-Host '  pick the folders your notes live in, press Start, then restart Claude Desktop once.'
+Write-Host '  (already set up? then it just updated, and it is running in your tray.)'
+Write-Host ''
+Write-Host '  one honest heads-up: this is a beta, so things might break.' -ForegroundColor Yellow
+Write-Host '  if anything feels off, tell your AI "report to Zarp: ..." or open an issue at'
+Write-Host '  https://github.com/IshaanDugar/zarp/issues  and I will fix it and push an update fast.'
+Write-Host '  thanks for testing.  - Ishaan'
 Write-Host ''
