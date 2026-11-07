@@ -25,9 +25,9 @@
     <ul>
       <li><a href="#how">how it works</a></li>
       <li><a href="#numbers">the numbers</a></li>
-      <li><a href="#get">get it</a></li>
+      <li><a href="#install">get it</a></li>
     </ul>
-    <a class="btn btn--secondary" href="https://github.com/IshaanDugar/zarp/releases/latest/download/WarpSearch-Beta-Setup.exe">download</a>
+    <a class="btn btn--secondary" href="#install">get zarp</a>
   </nav>
 
   <main id="top">
@@ -36,7 +36,7 @@
         <h1>skip 49 pages. <span class="verb">zarp</span> to one.</h1>
         <p>Your AI asks Zarp and gets back the one page that answers.</p>
         <div class="actions">
-          <a class="btn btn--primary" href="https://github.com/IshaanDugar/zarp/releases/latest/download/WarpSearch-Beta-Setup.exe">download for windows</a>
+          <a class="btn btn--primary" href="#install">get zarp for windows</a>
           <a class="btn btn--secondary" href="#how">how it works</a>
         </div>
         <p class="small">It’s a free beta for Windows 10 and 11, and you don’t need admin rights.</p>
@@ -146,7 +146,7 @@
           <li><span>works with</span><span>Claude Desktop, Claude Code and Codex</span></li>
           <li><span>size</span><span>About 130 MB, and it updates itself</span></li>
           <li><span>new name</span><span>Zarp used to be called WarpSearch, and the installer still says so until the next update. It’s the same app.</span></li>
-          <li><span>heads up</span><span>If you download in a browser, Windows may say it protected your PC. Click more info, then run anyway, or use the PowerShell line below. Signing certificates cost money, and the beta is free.</span></li>
+          <li><span>heads up</span><span>Install with one PowerShell line (below) and Windows won’t complain. The .exe works too, with one extra click.</span></li>
         </ul>
       </div>
       <div class="well blueprint closer">
@@ -154,21 +154,35 @@
       </div>
     </section>
 
-    <section class="split">
+    <section id="install" class="split split--top">
       <div class="text">
         <h2>go on, give it a page.</h2>
-        <div class="actions">
-          <a class="btn btn--primary" href="https://github.com/IshaanDugar/zarp/releases/latest/download/WarpSearch-Beta-Setup.exe">download for windows</a>
-        </div>
-        <div class="shell">
-          <label class="small" for="ps-line">Or paste this into PowerShell. It checks the download against the published checksum and skips the Windows warning.</label>
+        <p>Five quick things first, so nothing surprises you later.</p>
+        <fieldset class="agree" id="agree">
+          <legend class="small">Tick all five and the install appears.</legend>
+          <label><input type="checkbox" required> <span>Zarp only reads my files. It never changes, moves or deletes them.</span></label>
+          <label><input type="checkbox" required> <span>While I test, Zarp sends Ishaan my questions, file names, timings, and the snippets of my notes it hands my AI. He uses them only to fix bugs and make the answers better, and never sells or shares them.</span></label>
+          <label><input type="checkbox" required> <span>I’ll pick my folders on purpose and leave out anything medical, financial, confidential or full of passwords.</span></label>
+          <label><input type="checkbox" required> <span>It’s a beta. It can stop working at any time, and it ends on 21 November 2026 unless an update moves the date.</span></label>
+          <label><input type="checkbox" required> <span>It’s for my own testing. I won’t pass the installer around, and I’ve read the <a href="TERMS.txt">beta terms</a>.</span></label>
+        </fieldset>
+      </div>
+
+      <div class="get" id="get">
+        <div class="well get-card">
+          <h3>the easy way</h3>
+          <p>Open PowerShell, paste this line and press Enter. It downloads Zarp from GitHub, checks it against the published checksum, and starts the installer. No scary Windows warning.</p>
           <div class="shell-row">
-            <input id="ps-line" class="shell-cmd" readonly value="irm https://ishaandugar.github.io/zarp/install.ps1 | iex">
-            <button class="btn btn--secondary shell-copy" type="button" id="ps-copy">copy</button>
+            <input id="ps-line" class="shell-cmd" readonly aria-label="PowerShell install command" value="irm https://ishaandugar.github.io/zarp/install.ps1 | iex">
+            <button class="btn btn--primary shell-copy" type="button" id="ps-copy" data-gated>copy</button>
           </div>
+          <p class="small" id="gate-note" aria-live="polite">Tick all five boxes above first.</p>
+        </div>
+        <div class="get-alt">
+          <p class="small">Prefer clicking? <a href="https://github.com/IshaanDugar/zarp/releases/latest/download/WarpSearch-Beta-Setup.exe" id="exe-link" data-gated>Download the .exe instead.</a> Windows will probably say it protected your PC, because beta builds aren’t signed yet (a signing certificate costs money and the beta is free). Click More info, then Run anyway.</p>
+          <p class="small">Want your data deleted? <a href="https://github.com/IshaanDugar/zarp/issues/new?title=Delete%20my%20data">Open a GitHub issue</a> with your install ID. To find it, run <code>(gc "$env:LOCALAPPDATA\DiskAI-Beta\beta_settings.json" | ConvertFrom-Json).install_id</code> in PowerShell. Uninstalling stops all sending.</p>
         </div>
       </div>
-      <p class="fine">This is a test build. It stops working on 21 November 2026 unless an update moves the date. While you test, it sends me usage data: your questions, file names, and the bits of your notes it hands your assistant. Uninstall it to stop. <a href="TERMS.txt">Beta terms</a>. <a href="README_BETA.txt">Exactly what gets sent</a>.</p>
     </section>
   </main>
 
@@ -187,7 +201,23 @@
 (() => {
   const btn = document.getElementById('ps-copy'), box = document.getElementById('ps-line');
   if (!btn || !box) return;
+  const boxes = [...document.querySelectorAll('#agree input[type=checkbox]')];
+  const gated = [...document.querySelectorAll('[data-gated]')];
+  const note = document.getElementById('gate-note');
+  const ok = () => boxes.every((b) => b.checked);
+  const sync = () => {
+    const open = ok();
+    gated.forEach((el) => { el.setAttribute('aria-disabled', String(!open)); if (el.tagName === 'BUTTON') el.disabled = !open; });
+    box.classList.toggle('is-locked', !open);
+    if (note) note.textContent = open ? 'All set. Thanks for reading.' : 'Tick all five boxes above first.';
+  };
+  boxes.forEach((b) => b.addEventListener('change', sync));
+  sync();
+  document.getElementById('exe-link')?.addEventListener('click', (e) => {
+    if (!ok()) { e.preventDefault(); document.getElementById('agree').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  });
   btn.addEventListener('click', async () => {
+    if (!ok()) return;
     try { await navigator.clipboard.writeText(box.value); } catch { box.select(); }
     btn.textContent = 'copied'; btn.dataset.done = '';
     setTimeout(() => { btn.textContent = 'copy'; delete btn.dataset.done; }, 1800);
