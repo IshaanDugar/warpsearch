@@ -125,6 +125,8 @@ section { padding-block: var(--section-gap-s); }
 .get { display: grid; gap: var(--space-md); min-width: 0; }
 .get-card { display: grid; gap: var(--space-sm); padding: var(--space-lg); box-shadow: var(--shadow-card); }
 .get-card .shell-row { margin-top: var(--space-xs); }
+.get.is-mac #card-mac { order: -1; }
+.get #gate-note { order: -2; }
 .get-alt { display: grid; gap: var(--space-sm); padding-inline: var(--space-2xs); }
 .get-alt code { font: 400 0.75rem/1.5 var(--font-outlier); color: var(--color-ink-2); overflow-wrap: anywhere; }
 .btn:disabled, .btn[aria-disabled="true"] { background: var(--color-paper-3); color: var(--color-muted); cursor: not-allowed; transform: none; }

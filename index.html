@@ -39,7 +39,7 @@
           <a class="btn btn--primary" href="#install">get zarp for windows</a>
           <a class="btn btn--secondary" href="#how">how it works</a>
         </div>
-        <p class="small">It’s a free beta for Windows 10 and 11, and you don’t need admin rights.</p>
+        <p class="small">It’s a free beta for Windows and Mac, and you don’t need admin rights.</p>
       </div>
 
       <figure class="well chat" aria-label="An example: Claude asking Zarp about lecture notes">
@@ -141,7 +141,7 @@
         <h2>up and running before your coffee cools.</h2>
         <p>Install it, pick the folders your notes live in, and press start. Zarp connects itself to your assistants. Restart Claude Desktop once and you’re done.</p>
         <ul class="needs">
-          <li><span>runs on</span><span>Windows 10 or 11. Mac isn’t ready yet, sorry.</span></li>
+          <li><span>runs on</span><span>Windows 10 or 11, and Apple Silicon Macs (M1 and newer). The Mac version is the newest, so tell me if anything looks off.</span></li>
           <li><span>reads</span><span>PDFs (scanned ones too), slides, Word, Excel and Markdown. New files show up within a minute.</span></li>
           <li><span>works with</span><span>Claude Desktop, Claude Code and Codex</span></li>
           <li><span>size</span><span>About 130 MB, and it updates itself</span></li>
@@ -165,18 +165,28 @@
       </div>
 
       <div class="get" id="get">
-        <div class="well get-card">
-          <h3>the easy way</h3>
+        <p class="small" id="gate-note" aria-live="polite">Tick the box on the left first.</p>
+        <div class="well get-card" id="card-win">
+          <h3>windows, the easy way</h3>
           <p>Open PowerShell, paste this line and press Enter. It downloads Zarp, checks it against the published checksum and installs it with no clicks and no scary Windows warning. Then Zarp opens and asks which folders to read.</p>
           <div class="shell-row">
             <input id="ps-line" class="shell-cmd" readonly aria-label="PowerShell install command" value="irm https://ishaandugar.github.io/zarp/install.ps1 | iex">
-            <button class="btn btn--primary shell-copy" type="button" id="ps-copy" data-gated>copy</button>
+            <button class="btn btn--primary shell-copy" type="button" data-copy="ps-line" data-gated>copy</button>
           </div>
-          <p class="small" id="gate-note" aria-live="polite">Tick the box on the left first.</p>
+          <p class="small">Prefer clicking? <a href="https://github.com/IshaanDugar/zarp/releases/latest/download/Zarp-Beta-Setup.exe" class="dl-link" data-gated>Download the .exe instead.</a> Windows will probably say it protected your PC, because beta builds aren’t signed yet (a signing certificate costs money and the beta is free). Click More info, then Run anyway.</p>
+        </div>
+        <div class="well get-card" id="card-mac">
+          <h3>mac, the easy way</h3>
+          <p>For Apple Silicon Macs (M1 and newer). Open Terminal, paste this line and press Enter. It checks the download, puts Zarp in Applications and opens it, with no “can’t verify the app” detour.</p>
+          <div class="shell-row">
+            <input id="sh-line" class="shell-cmd" readonly aria-label="Terminal install command" value="curl -fsSL https://ishaandugar.github.io/zarp/install.sh | bash">
+            <button class="btn btn--primary shell-copy" type="button" data-copy="sh-line" data-gated>copy</button>
+          </div>
+          <p class="small">Prefer clicking? <a href="https://github.com/IshaanDugar/zarp/releases/latest/download/Zarp-Beta-mac-arm64.zip" class="dl-link" data-gated>Download the zip</a> and drag Zarp Beta into Applications. The first time, your Mac says it can’t verify the app, because the beta isn’t notarized yet. Open System Settings, then Privacy &amp; Security, scroll down and click Open Anyway. You only do this once.</p>
         </div>
         <div class="get-alt">
-          <p class="small">Prefer clicking? <a href="https://github.com/IshaanDugar/zarp/releases/latest/download/Zarp-Beta-Setup.exe" id="exe-link" data-gated>Download the .exe instead.</a> Windows will probably say it protected your PC, because beta builds aren’t signed yet (a signing certificate costs money and the beta is free). Click More info, then Run anyway.</p>
-          <p class="small">Want your data deleted? <a href="https://github.com/IshaanDugar/zarp/issues/new?title=Delete%20my%20data">Open a GitHub issue</a> with your install ID. To find it, run <code>(gc "$env:LOCALAPPDATA\DiskAI-Beta\beta_settings.json" | ConvertFrom-Json).install_id</code> in PowerShell. Uninstalling stops all sending.</p>
+          <p class="small">After installing, quit Claude Desktop and open it again so it sees Zarp. On Claude Code or Codex, start a new session.</p>
+          <p class="small">Want your data deleted? <a href="https://github.com/IshaanDugar/zarp/issues/new?title=Delete%20my%20data">Open a GitHub issue</a> with your install ID. It’s in <code>beta_settings.json</code> inside <code>%LOCALAPPDATA%\DiskAI-Beta</code> on Windows, or <code>~/Library/Application Support/DiskAI-Beta</code> on a Mac. Uninstalling stops all sending.</p>
         </div>
       </div>
     </section>
@@ -195,30 +205,35 @@
 </div>
 <script>
 (() => {
-  const btn = document.getElementById('ps-copy'), box = document.getElementById('ps-line');
-  if (!btn || !box) return;
   const boxes = [...document.querySelectorAll('#agree input[type=checkbox]')];
   const gated = [...document.querySelectorAll('[data-gated]')];
+  const lines = [...document.querySelectorAll('.shell-cmd')];
   const note = document.getElementById('gate-note');
+  const get = document.getElementById('get');
   const ok = () => boxes.every((b) => b.checked);
+  if (/Mac/.test(navigator.platform || navigator.userAgent) && get) get.classList.add('is-mac');
   const sync = () => {
     const open = ok();
     gated.forEach((el) => { el.setAttribute('aria-disabled', String(!open)); if (el.tagName === 'BUTTON') el.disabled = !open; });
-    box.classList.toggle('is-locked', !open);
+    lines.forEach((l) => l.classList.toggle('is-locked', !open));
     if (note) note.textContent = open ? 'All set. Thanks for reading.' : 'Tick the box on the left first.';
   };
   boxes.forEach((b) => b.addEventListener('change', sync));
   sync();
-  document.getElementById('exe-link')?.addEventListener('click', (e) => {
+  document.querySelectorAll('.dl-link').forEach((a) => a.addEventListener('click', (e) => {
     if (!ok()) { e.preventDefault(); document.getElementById('agree').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  }));
+  document.querySelectorAll('[data-copy]').forEach((btn) => {
+    const box = document.getElementById(btn.dataset.copy);
+    if (!box) return;
+    btn.addEventListener('click', async () => {
+      if (!ok()) return;
+      try { await navigator.clipboard.writeText(box.value); } catch { box.select(); }
+      btn.textContent = 'copied'; btn.dataset.done = '';
+      setTimeout(() => { btn.textContent = 'copy'; delete btn.dataset.done; }, 1800);
+    });
+    box.addEventListener('focus', () => box.select());
   });
-  btn.addEventListener('click', async () => {
-    if (!ok()) return;
-    try { await navigator.clipboard.writeText(box.value); } catch { box.select(); }
-    btn.textContent = 'copied'; btn.dataset.done = '';
-    setTimeout(() => { btn.textContent = 'copy'; delete btn.dataset.done; }, 1800);
-  });
-  box.addEventListener('focus', () => box.select());
 })();
 </script>
 </body>
