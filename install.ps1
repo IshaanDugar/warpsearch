@@ -44,7 +44,10 @@ if ($hash -ne $win.sha256.ToLowerInvariant()) {
 Write-Host '  checksum matches. installing (about 30 seconds, no clicks needed)...'
 # /SILENT shows a small progress bar and skips every wizard page. The installer
 # then starts Zarp, which opens its setup window on the first run.
-$p = Start-Process -FilePath $target -ArgumentList '/SILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-' -Wait -PassThru
+# Wait for the installer process only. Start-Process -Wait would also wait for
+# Zarp itself (the installer starts it), so the window would hang until Zarp quits.
+$p = Start-Process -FilePath $target -ArgumentList '/SILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-' -PassThru
+$p.WaitForExit()
 Remove-Item $target -Force -ErrorAction SilentlyContinue
 if ($p.ExitCode -ne 0) {
     Write-Host ("  The installer stopped with code {0}. Close Zarp from the tray if it's open, then run this line again." -f $p.ExitCode) -ForegroundColor Red
