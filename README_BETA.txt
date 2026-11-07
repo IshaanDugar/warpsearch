@@ -20,6 +20,25 @@ INSTALL (WINDOWS), ABOUT TWO MINUTES
 Nothing connected? Right-click the tray icon > "Connect to Claude / Codex...".
 
 
+INSTALL (MAC), ABOUT THREE MINUTES
+
+Apple Silicon Macs (M1 and newer), macOS 11 or later. Intel Macs aren't supported in this beta.
+
+1. Open Zarp-Beta-mac-arm64.zip (double-click it), then drag "Zarp Beta" into your Applications folder.
+2. Open Zarp Beta. The first time, your Mac says it can't verify the app. That's because the beta isn't notarized
+   with Apple yet. It's safe to continue:
+   - Click Done (not "Move to Bin").
+   - Open System Settings > Privacy & Security, scroll down to the message about "Zarp Beta" and click "Open Anyway".
+   - Confirm with your password or Touch ID, then click "Open Anyway" once more. You only do this once.
+   On macOS 14 or older you can instead right-click (or Control-click) Zarp Beta in Applications, choose Open, then
+   Open. macOS 15 (Sequoia) removed that shortcut, so use Privacy & Security there.
+3. Pick the folders with your notes, tick the terms box, press Start.
+4. Restart Claude Desktop: press Cmd+Q, then open it again. On Claude Code or Codex, start a new session.
+5. Ask: "Using Zarp, what did my notes say about <topic>? Cite the page."
+
+Zarp lives in the menu bar at the top of your screen. To remove it, quit it there and drag Zarp Beta to the Bin.
+
+
 GOOD TO KNOW
 
 - It updates itself, and new or changed files in your folders show up within about a minute.
@@ -46,6 +65,9 @@ use "Report to Zarp": your verdict, your note and the full text of the pages inv
 About your setup: file names as "folder/sub/file.pdf" (never full paths), counts and sizes per file type, index
 and search timings, your OS, CPU, RAM, free disk, screen size, language, app version, setup steps, menu use, update
 events and connection results.
+After indexing, totals only: file and page counts per type, folder depth, total size, how many files are in each
+folder (no names), whether a folder is local, removable, network or cloud-synced, and how many cloud files are
+online-only (counted, never downloaded). Also skip reasons, OCR counts, time per type, CPU cores and whether an NPU is present.
 
 It's tied to a random ID made on your computer, not your name or email. It isn't anonymous though: the ID is the same
 every time, the server sees your IP address like any website, and your questions and note text arrive as written.
