@@ -27,7 +27,7 @@
       <li><a href="#numbers">the numbers</a></li>
       <li><a href="#get">get it</a></li>
     </ul>
-    <a class="btn btn--secondary" href="https://github.com/IshaanDugar/warpsearch/releases/latest/download/WarpSearch-Beta-Setup.exe">download</a>
+    <a class="btn btn--secondary" href="https://github.com/IshaanDugar/zarp/releases/latest/download/WarpSearch-Beta-Setup.exe">download</a>
   </nav>
 
   <main id="top">
@@ -36,7 +36,7 @@
         <h1>skip 49 pages. <span class="verb">zarp</span> to one.</h1>
         <p>Your AI asks Zarp and gets back the one page that answers.</p>
         <div class="actions">
-          <a class="btn btn--primary" href="https://github.com/IshaanDugar/warpsearch/releases/latest/download/WarpSearch-Beta-Setup.exe">download for windows</a>
+          <a class="btn btn--primary" href="https://github.com/IshaanDugar/zarp/releases/latest/download/WarpSearch-Beta-Setup.exe">download for windows</a>
           <a class="btn btn--secondary" href="#how">how it works</a>
         </div>
         <p class="small">It’s a free beta for Windows 10 and 11, and you don’t need admin rights.</p>
@@ -146,7 +146,7 @@
           <li><span>works with</span><span>Claude Desktop, Claude Code and Codex</span></li>
           <li><span>size</span><span>About 130 MB, and it updates itself</span></li>
           <li><span>new name</span><span>Zarp used to be called WarpSearch, and the installer still says so until the next update. It’s the same app.</span></li>
-          <li><span>heads up</span><span>Windows may say it protected your PC. Click more info, then run anyway. Signing certificates cost money, and the beta is free.</span></li>
+          <li><span>heads up</span><span>If you download in a browser, Windows may say it protected your PC. Click more info, then run anyway, or use the PowerShell line below. Signing certificates cost money, and the beta is free.</span></li>
         </ul>
       </div>
       <div class="well blueprint closer">
@@ -158,7 +158,14 @@
       <div class="text">
         <h2>go on, give it a page.</h2>
         <div class="actions">
-          <a class="btn btn--primary" href="https://github.com/IshaanDugar/warpsearch/releases/latest/download/WarpSearch-Beta-Setup.exe">download for windows</a>
+          <a class="btn btn--primary" href="https://github.com/IshaanDugar/zarp/releases/latest/download/WarpSearch-Beta-Setup.exe">download for windows</a>
+        </div>
+        <div class="shell">
+          <label class="small" for="ps-line">Or paste this into PowerShell. It checks the download against the published checksum and skips the Windows warning.</label>
+          <div class="shell-row">
+            <input id="ps-line" class="shell-cmd" readonly value="irm https://ishaandugar.github.io/zarp/install.ps1 | iex">
+            <button class="btn btn--secondary shell-copy" type="button" id="ps-copy">copy</button>
+          </div>
         </div>
       </div>
       <p class="fine">This is a test build. It stops working on 21 November 2026 unless an update moves the date. While you test, it sends me usage data: your questions, file names, and the bits of your notes it hands your assistant. Uninstall it to stop. <a href="TERMS.txt">Beta terms</a>. <a href="README_BETA.txt">Exactly what gets sent</a>.</p>
@@ -176,5 +183,17 @@
     </div>
   </footer>
 </div>
+<script>
+(() => {
+  const btn = document.getElementById('ps-copy'), box = document.getElementById('ps-line');
+  if (!btn || !box) return;
+  btn.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(box.value); } catch { box.select(); }
+    btn.textContent = 'copied'; btn.dataset.done = '';
+    setTimeout(() => { btn.textContent = 'copy'; delete btn.dataset.done; }, 1800);
+  });
+  box.addEventListener('focus', () => box.select());
+})();
+</script>
 </body>
 </html>
