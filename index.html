@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zarp</title>
-<meta name="description" content="Your AI asks Zarp and gets the one page that answers. Reads your notes once, on your laptop. About a quarter of the tokens.">
+<meta name="description" content="Ask about your notes, slides and PDFs and get the exact file and page. Use it inside Claude or Codex, or on its own with a search box. Free beta for Windows and Mac.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23181512'/%3E%3Cpath d='M20 27H70L30 73H58' fill='none' stroke='%23f7b83d' stroke-width='13'/%3E%3Crect x='68' y='66.5' width='13' height='13' fill=%27%23f5b544%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,8 +23,9 @@
   <nav class="mast" aria-label="main">
     <a class="brand" href="#top" aria-label="Zarp home"><svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>zarp</a>
     <ul>
+      <li><a href="#start">quick start</a></li>
+      <li><a href="#ways">two ways to use it</a></li>
       <li><a href="#how">how it works</a></li>
-      <li><a href="#numbers">the numbers</a></li>
       <li><a href="#install">get it</a></li>
     </ul>
     <a class="btn btn--secondary" href="#install">get zarp</a>
@@ -34,12 +35,13 @@
     <header class="hero">
       <div class="hero-text">
         <h1>skip 49 pages. <span class="verb">zarp</span> to one.</h1>
-        <p>Your AI asks Zarp and gets back the one page that answers.</p>
+        <p>Ask a question about your notes, slides or PDFs. Zarp finds the exact file and page that answers it.</p>
+        <p>Use it inside Claude or Codex, or on its own as a search box. No AI know-how needed.</p>
         <div class="actions">
-          <a class="btn btn--primary" href="#install">get zarp for windows</a>
-          <a class="btn btn--secondary" href="#how">how it works</a>
+          <a class="btn btn--primary" href="#install">get zarp, free</a>
+          <a class="btn btn--secondary" href="#start">see the 3 steps</a>
         </div>
-        <p class="small">It’s a free beta for Windows and Mac, and you don’t need admin rights.</p>
+        <p class="small">Free beta for Windows and Mac. About two minutes to set up. No account, no admin rights.</p>
       </div>
 
       <figure class="well chat" aria-label="An example: Claude asking Zarp about lecture notes">
@@ -58,6 +60,47 @@
         <figcaption class="chat-foot readout">sample notes, made up for this page</figcaption>
       </figure>
     </header>
+
+    <section id="start" class="start">
+      <h2>three steps. that’s the whole setup.</h2>
+      <ol class="steps">
+        <li class="well step">
+          <span class="step-n">1</span>
+          <h3>install it</h3>
+          <p>Copy one line, paste it, press Enter. <a href="#install">The steps are below</a> and take about two minutes.</p>
+        </li>
+        <li class="well step">
+          <span class="step-n">2</span>
+          <h3>pick your folders</h3>
+          <p>Zarp opens and asks where your notes live. Choose those folders and press Start. It reads them once, on your laptop.</p>
+        </li>
+        <li class="well step">
+          <span class="step-n">3</span>
+          <h3>ask</h3>
+          <p>Ask Claude about your notes, or press <kbd>Ctrl+Alt+Space</kbd> and just type. You get the file and the page.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ways" class="ways">
+      <h2>two ways to use it. pick either.</h2>
+      <div class="ways-grid">
+        <div class="well way">
+          <span class="path-name">with your ai</span>
+          <h3>ask claude or codex</h3>
+          <p>Zarp connects itself. Restart Claude Desktop once, then ask in plain words:</p>
+          <p class="say">“Using Zarp, what do my notes say about photosynthesis? Give the file and page.”</p>
+          <p class="small">Works with Claude Desktop, Claude Code and Codex.</p>
+        </div>
+        <div class="well way">
+          <span class="path-name">on its own, no ai</span>
+          <h3>use the search box</h3>
+          <p>Press <kbd>Ctrl+Alt+Space</kbd> anywhere on Windows. On a Mac, click the Zarp icon at the top of your screen and choose Search. Type what you remember, in your own words.</p>
+          <p>Each result shows the file and page with a preview. Press Enter to open it right at that page.</p>
+          <p class="small">No AI app, no account, nothing to learn.</p>
+        </div>
+      </div>
+    </section>
 
     <section id="how" class="split split--lead">
       <div class="text">
@@ -89,7 +132,7 @@
       <div class="text">
         <h2>i timed it, obviously.</h2>
         <p>I asked Claude Sonnet the same twelve questions about the same notes, once with Zarp and once without. Both runs got all twelve right. One of them used about a quarter of the tokens.</p>
-        <p class="small">That’s one test on a small set of notes, so your numbers will be different.</p>
+        <p class="small">Tokens are how AI apps count your usage. Fewer tokens means you hit your daily limit later. That’s one test on a small set of notes, so your numbers will be different.</p>
       </div>
       <div class="figures">
         <div class="well figure"><strong>0.27×</strong><span class="readout">the tokens. 12k instead of 44k</span></div>
@@ -143,10 +186,10 @@
         <ul class="needs">
           <li><span>runs on</span><span>Windows 10 or 11, and Apple Silicon Macs (M1 and newer). The Mac version is the newest, so tell me if anything looks off.</span></li>
           <li><span>reads</span><span>PDFs (scanned ones too), slides, Word, Excel and Markdown. New files show up within a minute.</span></li>
-          <li><span>works with</span><span>Claude Desktop, Claude Code and Codex</span></li>
+          <li><span>works with</span><span>Claude Desktop, Claude Code and Codex. No AI app? The search box works on its own.</span></li>
           <li><span>size</span><span>About 130 MB, and it updates itself</span></li>
           <li><span>new name</span><span>Zarp used to be called WarpSearch. Already have it? It updates itself.</span></li>
-          <li><span>heads up</span><span>Install with one PowerShell line (below) and Windows won’t complain. The .exe works too, with one extra click.</span></li>
+          <li><span>heads up</span><span>The one-line install below skips the Windows warning. Never used PowerShell? That’s fine, the card says exactly what to press.</span></li>
         </ul>
       </div>
       <div class="well blueprint closer">
@@ -168,7 +211,12 @@
         <p class="small" id="gate-note" aria-live="polite">Tick the box on the left first.</p>
         <div class="well get-card" id="card-win">
           <h3>windows, the easy way</h3>
-          <p>Open PowerShell, paste this line and press Enter. It downloads Zarp, checks it against the published checksum and installs it with no clicks and no scary Windows warning. Then Zarp opens and asks which folders to read.</p>
+          <ol class="mini">
+            <li>Press copy below.</li>
+            <li>Press the <kbd>Windows</kbd> key, type <b>PowerShell</b> and press Enter. A blue or black window opens.</li>
+            <li>Right-click inside it to paste, then press Enter.</li>
+          </ol>
+          <p class="small">It downloads Zarp, checks the download is the real one and installs it. No clicks, no Windows warning. Zarp then opens and asks which folders to read.</p>
           <div class="shell-row">
             <input id="ps-line" class="shell-cmd" readonly aria-label="PowerShell install command" value="irm https://ishaandugar.github.io/zarp/install.ps1 | iex">
             <button class="btn btn--primary shell-copy" type="button" data-copy="ps-line" data-gated>copy</button>
@@ -177,7 +225,13 @@
         </div>
         <div class="well get-card" id="card-mac">
           <h3>mac, the easy way</h3>
-          <p>For Apple Silicon Macs (M1 and newer). Open Terminal, paste this line and press Enter. It checks the download, puts Zarp in Applications and opens it, with no “can’t verify the app” detour.</p>
+          <p class="small">For Apple Silicon Macs (M1 and newer).</p>
+          <ol class="mini">
+            <li>Press copy below.</li>
+            <li>Press <kbd>Cmd+Space</kbd>, type <b>Terminal</b> and press Enter.</li>
+            <li>Press <kbd>Cmd+V</kbd> to paste, then press Enter.</li>
+          </ol>
+          <p class="small">It checks the download, puts Zarp in Applications and opens it, with no “can’t verify the app” detour.</p>
           <div class="shell-row">
             <input id="sh-line" class="shell-cmd" readonly aria-label="Terminal install command" value="curl -fsSL https://ishaandugar.github.io/zarp/install.sh | bash">
             <button class="btn btn--primary shell-copy" type="button" data-copy="sh-line" data-gated>copy</button>
@@ -185,7 +239,8 @@
           <p class="small">Prefer clicking? <a href="https://github.com/IshaanDugar/zarp/releases/latest/download/Zarp-Beta-mac-arm64.zip" class="dl-link" data-gated>Download the zip</a> and drag Zarp Beta into Applications. The first time, your Mac says it can’t verify the app, because the beta isn’t notarized yet. Open System Settings, then Privacy &amp; Security, scroll down and click Open Anyway. You only do this once.</p>
         </div>
         <div class="get-alt">
-          <p class="small">After installing, quit Claude Desktop and open it again so it sees Zarp. On Claude Code or Codex, start a new session.</p>
+          <p><b>Then:</b> pick your notes folders and press Start. Using Claude Desktop? Quit it fully (right-click its icon by the clock, or <kbd>Cmd+Q</kbd> on a Mac) and open it again so it sees Zarp. On Claude Code or Codex, start a new session.</p>
+          <p class="small">First thing to try: “Using Zarp, what do my notes say about <i>a topic from your notes</i>? Give the file and page.” Or skip the AI and press <kbd>Ctrl+Alt+Space</kbd> (on a Mac: Zarp icon at the top, then Search).</p>
           <p class="small">Want your data deleted? <a href="https://github.com/IshaanDugar/zarp/issues/new?title=Delete%20my%20data">Open a GitHub issue</a> with your install ID. It’s in <code>beta_settings.json</code> inside <code>%LOCALAPPDATA%\DiskAI-Beta</code> on Windows, or <code>~/Library/Application Support/DiskAI-Beta</code> on a Mac. Uninstalling stops all sending.</p>
         </div>
       </div>

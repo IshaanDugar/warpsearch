@@ -181,3 +181,19 @@ a[aria-disabled="true"] { color: var(--color-muted); }
   .hero-text, .chat, .verb::after, .dot { animation: none; }
   .btn, a { transition: none; }
 }
+
+/* quick start + two ways (plain-language pass, 2026-11-08) */
+.start, .ways { display: grid; gap: var(--space-lg); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-sm); }
+.step { display: grid; gap: var(--space-xs); align-content: start; padding: var(--space-lg) var(--space-md); }
+.step-n { font-family: var(--font-display); font-size: var(--text-display-s); line-height: 1; color: var(--color-accent); }
+.ways-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-sm); }
+.way { display: grid; gap: var(--space-sm); align-content: start; padding: var(--space-lg); }
+.say { color: var(--color-ink); border-left: 2px solid var(--color-accent); padding-left: var(--space-sm); }
+kbd { font: 400 0.8em/1 var(--font-outlier); color: var(--color-ink); border: var(--rule-hair) solid var(--color-rule-2); border-bottom-width: 2px; border-radius: 5px; padding: 0.15em 0.4em; white-space: nowrap; }
+.mini { margin: 0; padding-left: 1.2em; display: grid; gap: var(--space-2xs); color: var(--color-ink-2); line-height: 1.5; }
+.mini b, .get-alt b { font-weight: 500; color: var(--color-ink); }
+.get-alt > p:first-child { color: var(--color-ink-2); }
+@media (max-width: 860px) {
+  .steps, .ways-grid { grid-template-columns: minmax(0, 1fr); }
+}
