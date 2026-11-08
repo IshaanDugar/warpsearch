@@ -377,3 +377,16 @@ mark { background: none; color: var(--color-accent); }
 }
 
 .hero-text .hl { font-weight: 500; color: var(--color-accent); }
+
+/* AI-first hero: usage meter in the chat demo */
+.chatplay .c4 { opacity: 0; transform: translateY(8px); transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
+.chatplay.on4 .c4 { opacity: 1; transform: none; }
+.usage { display: grid; gap: var(--space-2xs); padding-top: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); }
+.u-row { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) 2.5rem; gap: var(--space-sm); align-items: center; }
+.u-row b { font: 400 0.875rem/1 var(--font-outlier); color: var(--color-ink-2); text-align: right; }
+.u-row--z b { color: var(--color-accent); }
+.u-row .fill { transition: width 1.4s var(--ease-out); }
+.chatplay.on4 .u-row .fill { width: 100%; }
+.chatplay.on4 .u-row--z .fill { width: 27%; }
+.u-row--z .fill { background: var(--color-accent); }
+.hero h1 .verb { white-space: nowrap; }

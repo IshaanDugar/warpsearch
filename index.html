@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zarp</title>
-<meta name="description" content="Type what you remember and Zarp opens the exact page in your PDFs, slides and notes. Works on its own or with the Claude and ChatGPT apps. Free for Windows and Mac.">
+<meta name="description" content="Claude and ChatGPT read your whole PDF for every question. Zarp hands them just the page that answers, so they use up to 75% less of your limit. Free for Windows and Mac.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23181512'/%3E%3Cpath d='M20 27H70L30 73H58' fill='none' stroke='%23f7b83d' stroke-width='13'/%3E%3Crect x='68' y='66.5' width='13' height='13' fill=%27%23f5b544%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,9 +23,9 @@
   <nav class="mast" aria-label="main">
     <a class="brand" href="#top" aria-label="Zarp home"><svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>zarp</a>
     <ul>
-      <li><a href="#ctrlf">why not ctrl+f</a></li>
       <li><a href="#savings">the savings</a></li>
       <li><a href="#start">quick start</a></li>
+      <li><a href="#ctrlf">search box</a></li>
       <li><a href="#install">get it</a></li>
     </ul>
     <a class="btn btn--secondary" href="#install">get zarp</a>
@@ -34,9 +34,9 @@
   <main id="top">
     <header class="hero">
       <div class="hero-text">
-        <h1>you remember the idea. <span class="verb">zarp</span> finds the page.</h1>
-        <p>Forgot the wording, or which file it was in? Type what you remember. Zarp opens the right file on the right page, across all your notes, slides and PDFs.</p>
-        <p>Use it on its own, or plug it into Claude or ChatGPT and burn up to <b class="hl">75% less</b> of your AI limit.</p>
+        <h1>stop burning your <span class="verb">ai limit</span> on pdfs.</h1>
+        <p>Claude and ChatGPT read your whole file for every question. Zarp hands them just the page that answers, so they use up to <b class="hl">75% less</b> of your limit.</p>
+        <p>Same answers, with the page to prove it. Plus a search box for your notes that doesn’t need the exact words.</p>
         <div class="actions">
           <a class="btn btn--primary" href="#install">get zarp, free</a>
           <a class="btn btn--secondary" href="#savings">see the savings</a>
@@ -46,10 +46,10 @@
 
       <figure class="well chat demo" aria-label="Demo: the same search in Ctrl+F and in Zarp, and Claude using Zarp">
         <div class="chat-head" role="tablist">
-          <button class="tab tab--on" type="button" role="tab" aria-selected="true" data-demo="box">search</button>
-          <button class="tab" type="button" role="tab" aria-selected="false" data-demo="ai">with claude or chatgpt</button>
+          <button class="tab tab--on" type="button" role="tab" aria-selected="true" data-demo="ai">with claude or chatgpt</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-demo="box">search box</button>
         </div>
-        <div class="chat-body demo-panel race" data-panel="box">
+        <div class="chat-body demo-panel race" data-panel="box" hidden>
           <div class="qbox"><svg aria-hidden="true"><use href="#mark"/></svg><span class="typed" data-text="what stops blood flowing backwards">what stops blood flowing backwards</span><i class="caret" aria-hidden="true"></i></div>
           <div class="lanes">
             <div class="lane lane--f">
@@ -68,57 +68,25 @@
           </div>
           <p class="readout punch">different words. buried in 41 files. <b>straight to page 12.</b></p>
         </div>
-        <div class="chat-body demo-panel chatplay" data-panel="ai" hidden>
+        <div class="chat-body demo-panel chatplay" data-panel="ai">
           <p class="ask c1">What stops blood flowing backwards in the heart? Cite the page.</p>
           <div class="call c2">
             <span class="readout"><b>zarp</b> found it in your notes</span>
-            <span class="readout">1 lookup instead of about 4</span>
+            <span class="readout">read 1 page, not the whole pdf</span>
           </div>
           <div class="c3">
             <p class="answer">The heart valves. They snap shut as soon as the pressure behind them drops, so blood can’t flow back the wrong way.</p>
             <span class="cite">cardio_week3.pdf, page 12</span>
           </div>
+          <div class="usage c4">
+            <span class="readout">this answer used</span>
+            <div class="u-row"><span class="readout">usual way</span><div class="meter"><span class="fill"></span></div><b>44k</b></div>
+            <div class="u-row u-row--z"><span class="readout">with zarp</span><div class="meter"><span class="fill"></span></div><b>12k</b></div>
+          </div>
         </div>
         <figcaption class="chat-foot readout">sample notes, made up for this page</figcaption>
       </figure>
     </header>
-
-    <section id="ctrlf" class="vs">
-      <div class="vs-head">
-        <h2>your memory isn’t a search term.</h2>
-        <p>Ctrl+F needs the exact words, in the one file you already opened. You remember the idea, roughly. That’s all Zarp needs.</p>
-      </div>
-      <div class="tri" data-anim>
-        <div class="well tri-card">
-          <div class="art art-words" aria-hidden="true"><span class="w w1">flowing backwards</span><span class="w-link"></span><span class="w w2">backflow</span></div>
-          <h3>your words, not theirs</h3>
-          <p class="small">Say it your way. Zarp finds the page that says it theirs.</p>
-        </div>
-        <div class="well tri-card">
-          <div class="art art-files" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <h3>every file at once</h3>
-          <p class="small">Not just the one you opened. All of them, in a blink.</p>
-        </div>
-        <div class="well tri-card">
-          <div class="art art-scan" aria-hidden="true"><div class="pg"><i></i><i></i><i></i><i></i><i></i></div></div>
-          <h3>scans and slides too</h3>
-          <p class="small">Photocopied handouts, slide decks, Word, Excel.</p>
-        </div>
-      </div>
-      <div class="well cmp-wrap">
-        <table class="cmp marks">
-          <thead><tr><th scope="col"><span class="sr">can it</span></th><th scope="col">ctrl+f</th><th scope="col">windows search / spotlight</th><th scope="col" class="z">zarp</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">finds it in your own words</th><td>–</td><td>–</td><td class="z">✓</td></tr>
-            <tr><th scope="row">looks in every file at once</th><td>–</td><td>✓</td><td class="z">✓</td></tr>
-            <tr><th scope="row">lands on the right page</th><td>✓</td><td>–</td><td class="z">✓</td></tr>
-            <tr><th scope="row">reads scanned pages</th><td>–</td><td>–</td><td class="z">✓</td></tr>
-            <tr><th scope="row">works with claude and chatgpt</th><td>–</td><td>–</td><td class="z">✓</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="small">Zarp finds pages. It doesn’t chat, browse the internet or make things up. When you want something explained, your AI does the talking.</p>
-    </section>
 
     <section id="savings" class="savings">
       <div class="vs-head">
@@ -159,47 +127,6 @@
       </details>
     </section>
 
-    <section id="start" class="start">
-      <h2>three steps. that’s the whole setup.</h2>
-      <ol class="steps">
-        <li class="well step">
-          <span class="step-n">1</span>
-          <h3>install it</h3>
-          <p>Copy one line, paste it, press Enter. <a href="#install">The steps are below</a>, click by click.</p>
-        </li>
-        <li class="well step">
-          <span class="step-n">2</span>
-          <h3>pick your folders</h3>
-          <p>Zarp opens and asks where your notes live. Choose those folders and press Start. It reads them once, on your laptop.</p>
-        </li>
-        <li class="well step">
-          <span class="step-n">3</span>
-          <h3>ask</h3>
-          <p>Press <kbd>Ctrl+Alt+Space</kbd> and type what you remember, or ask Claude or ChatGPT. You get the file and the page.</p>
-        </li>
-      </ol>
-    </section>
-
-    <section id="ways" class="ways">
-      <h2>two ways to use it. pick either.</h2>
-      <div class="ways-grid">
-        <div class="well way">
-          <span class="path-name">on its own, no ai</span>
-          <h3>use the search box</h3>
-          <p>Press <kbd>Ctrl+Alt+Space</kbd> anywhere on Windows. On a Mac, click the Zarp icon at the top of your screen and choose Search. Type what you remember, in your own words.</p>
-          <p>Each result shows the file and page with a preview. Press Enter to open it right at that page.</p>
-        </div>
-        <div class="well way">
-          <span class="path-name">with your ai</span>
-          <h3>ask claude or chatgpt</h3>
-          <p>Zarp connects itself. Restart the app once, then ask in plain words:</p>
-          <p class="say">“Using Zarp, what do my notes say about photosynthesis? Give the file and page.”</p>
-          <p>You get the answer and its page, using up to 75% less of your limit.</p>
-          <p class="small">Works with the Claude and ChatGPT desktop apps (both free to download). The websites can’t see files on your laptop, so use the app.</p>
-        </div>
-      </div>
-    </section>
-
     <section class="secret">
       <h2>read once. ask forever.</h2>
       <div class="well blueprint flow flowplay" role="img" aria-label="Your files go into Zarp once, on your laptop. After that, every question gets back one page.">
@@ -220,6 +147,83 @@
       </div>
     </section>
 
+    <section id="ways" class="ways">
+      <h2>two ways to use it. pick either.</h2>
+      <div class="ways-grid">
+        <div class="well way">
+          <span class="path-name">with your ai</span>
+          <h3>ask claude or chatgpt</h3>
+          <p>Zarp connects itself. Restart the app once, then ask in plain words:</p>
+          <p class="say">“Using Zarp, what do my notes say about photosynthesis? Give the file and page.”</p>
+          <p>You get the answer and its page, using up to 75% less of your limit.</p>
+          <p class="small">Works with the Claude and ChatGPT desktop apps (both free to download). The websites can’t see files on your laptop, so use the app.</p>
+        </div>
+        <div class="well way">
+          <span class="path-name">on its own, no ai</span>
+          <h3>use the search box</h3>
+          <p>Press <kbd>Ctrl+Alt+Space</kbd> anywhere on Windows. On a Mac, click the Zarp icon at the top of your screen and choose Search. Type what you remember, in your own words.</p>
+          <p>Each result shows the file and page with a preview. Press Enter to open it right at that page.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="start" class="start">
+      <h2>three steps. that’s the whole setup.</h2>
+      <ol class="steps">
+        <li class="well step">
+          <span class="step-n">1</span>
+          <h3>install it</h3>
+          <p>Copy one line, paste it, press Enter. <a href="#install">The steps are below</a>, click by click.</p>
+        </li>
+        <li class="well step">
+          <span class="step-n">2</span>
+          <h3>pick your folders</h3>
+          <p>Zarp opens and asks where your notes live. Choose those folders and press Start. It reads them once, on your laptop.</p>
+        </li>
+        <li class="well step">
+          <span class="step-n">3</span>
+          <h3>ask</h3>
+          <p>Ask Claude or ChatGPT like you normally would. Zarp hands them the page. Or press <kbd>Ctrl+Alt+Space</kbd> and search yourself.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ctrlf" class="vs">
+      <div class="vs-head">
+        <h2>bonus: a search box that gets you.</h2>
+        <p>No AI open? Press <kbd>Ctrl+Alt+Space</kbd> and type what you remember. Ctrl+F needs the exact words, in the one file you already opened. Zarp doesn’t.</p>
+      </div>
+      <div class="tri" data-anim>
+        <div class="well tri-card">
+          <div class="art art-words" aria-hidden="true"><span class="w w1">flowing backwards</span><span class="w-link"></span><span class="w w2">backflow</span></div>
+          <h3>your words, not theirs</h3>
+          <p class="small">Say it your way. Zarp finds the page that says it theirs.</p>
+        </div>
+        <div class="well tri-card">
+          <div class="art art-files" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <h3>every file at once</h3>
+          <p class="small">Not just the one you opened. All of them, in a blink.</p>
+        </div>
+        <div class="well tri-card">
+          <div class="art art-scan" aria-hidden="true"><div class="pg"><i></i><i></i><i></i><i></i><i></i></div></div>
+          <h3>scans and slides too</h3>
+          <p class="small">Photocopied handouts, slide decks, Word, Excel.</p>
+        </div>
+      </div>
+      <div class="well cmp-wrap">
+        <table class="cmp marks">
+          <thead><tr><th scope="col"><span class="sr">can it</span></th><th scope="col">ctrl+f</th><th scope="col">windows search / spotlight</th><th scope="col" class="z">zarp</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">finds it in your own words</th><td>–</td><td>–</td><td class="z">✓</td></tr>
+            <tr><th scope="row">looks in every file at once</th><td>–</td><td>✓</td><td class="z">✓</td></tr>
+            <tr><th scope="row">lands on the right page</th><td>✓</td><td>–</td><td class="z">✓</td></tr>
+            <tr><th scope="row">reads scanned pages</th><td>–</td><td>–</td><td class="z">✓</td></tr>
+            <tr><th scope="row">works with claude and chatgpt</th><td>–</td><td>–</td><td class="z">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">Zarp finds pages. It doesn’t chat, browse the internet or make things up. When you want something explained, your AI does the talking.</p>
+    </section>
 
     <section class="moments" aria-label="What it does">
       <div class="split">
@@ -346,38 +350,40 @@
   // hero: type, ctrl+f sweeps and fails, zarp finds the page; loops
   const race = document.querySelector('.race');
   const typed = race && race.querySelector('.typed');
-  let raceOn = true;
-  async function playRace() {
-    if (!race) return;
+  let demoRun = 0;
+  async function playRace(run) {
     if (reduce) { race.classList.add('s2', 's3', 's4'); return; }
     const text = typed.dataset.text;
-    while (raceOn) {
+    while (run === demoRun) {
       race.classList.remove('s2', 's3', 's4');
       typed.textContent = '';
       await wait(250);
-      for (const ch of text) { typed.textContent += ch; await wait(38); }
+      for (const ch of text) { if (run !== demoRun) return; typed.textContent += ch; await wait(38); }
       await wait(150); race.classList.add('s2');
       await wait(1200); race.classList.add('s3');
       await wait(900); race.classList.add('s4');
       await wait(4200);
     }
   }
-  playRace();
   const chat = document.querySelector('.chatplay');
-  let chatRun = 0;
-  async function playChat() {
-    const run = ++chatRun;
-    if (reduce) { chat.classList.add('on1', 'on2', 'on3'); return; }
-    chat.classList.remove('on1', 'on2', 'on3');
-    await wait(200); if (run !== chatRun) return; chat.classList.add('on1');
-    await wait(900); if (run !== chatRun) return; chat.classList.add('on2');
-    await wait(1100); if (run !== chatRun) return; chat.classList.add('on3');
+  async function playChat(run) {
+    const all = ['on1', 'on2', 'on3', 'on4'];
+    if (reduce) { chat.classList.add(...all); return; }
+    while (run === demoRun) {
+      chat.classList.remove(...all);
+      for (const [c, ms] of [['on1', 300], ['on2', 900], ['on3', 1100], ['on4', 900]]) {
+        await wait(ms); if (run !== demoRun) return; chat.classList.add(c);
+      }
+      await wait(5000);
+    }
   }
+  const play = (which) => { const run = ++demoRun; (which === 'ai' ? playChat : playRace)(run); };
+  play('ai');
   const tabs = [...document.querySelectorAll('[data-demo]')];
   tabs.forEach((t) => t.addEventListener('click', () => {
     tabs.forEach((x) => { const on = x === t; x.classList.toggle('tab--on', on); x.setAttribute('aria-selected', String(on)); });
     document.querySelectorAll('[data-panel]').forEach((pnl) => { pnl.hidden = pnl.dataset.panel !== t.dataset.demo; });
-    if (t.dataset.demo === 'ai') playChat();
+    play(t.dataset.demo);
   }));
   // count-ups and scroll-triggered pieces
   const countUp = (el) => {
