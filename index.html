@@ -35,7 +35,7 @@
     <header class="hero">
       <div class="hero-text">
         <h1>you remember the idea. <span class="verb">zarp</span> finds the page.</h1>
-        <p>Type it however you’d say it. Zarp opens the right file on the right page, across all your notes, slides and PDFs.</p>
+        <p>Forgot the wording, or which file it was in? Type what you remember. Zarp opens the right file on the right page, across all your notes, slides and PDFs.</p>
         <p>Use it on its own, or with the Claude and ChatGPT apps.</p>
         <div class="actions">
           <a class="btn btn--primary" href="#install">get zarp, free</a>
@@ -50,7 +50,7 @@
           <button class="tab" type="button" role="tab" aria-selected="false" data-demo="ai">with claude or chatgpt</button>
         </div>
         <div class="chat-body demo-panel race" data-panel="box">
-          <div class="qbox"><svg aria-hidden="true"><use href="#mark"/></svg><span class="typed" data-text="why do heart valves close">why do heart valves close</span><i class="caret" aria-hidden="true"></i></div>
+          <div class="qbox"><svg aria-hidden="true"><use href="#mark"/></svg><span class="typed" data-text="what stops blood flowing backwards">what stops blood flowing backwards</span><i class="caret" aria-hidden="true"></i></div>
           <div class="lanes">
             <div class="lane lane--f">
               <span class="lane-name">ctrl+f · one open file</span>
@@ -62,20 +62,20 @@
               <div class="stack" aria-hidden="true"><span>pdf</span><span>pptx</span><span>scan</span><span>docx</span><span>pdf</span><span>xlsx</span><span>pptx</span><span>pdf</span></div>
               <div class="found">
                 <span class="cite">cardio_week3.pdf, page 12</span>
-                <p>“…the valves <mark>snap shut</mark> when the pressure behind them drops…”</p>
+                <p>“…the heart valves <mark>prevent backflow</mark> by snapping shut…”</p>
               </div>
             </div>
           </div>
-          <p class="readout punch">you said “close”. the notes said “snap shut”. <b>found it anyway.</b></p>
+          <p class="readout punch">different words. buried in 41 files. <b>straight to page 12.</b></p>
         </div>
         <div class="chat-body demo-panel chatplay" data-panel="ai" hidden>
-          <p class="ask c1">What did my lecture say about heart valves closing? Cite the page.</p>
+          <p class="ask c1">What stops blood flowing backwards in the heart? Cite the page.</p>
           <div class="call c2">
             <span class="readout"><b>zarp</b> found it in your notes</span>
             <span class="readout">1 lookup instead of about 4</span>
           </div>
           <div class="c3">
-            <p class="answer">They snap shut whenever the pressure behind them drops below the pressure in front. That stops blood flowing backwards, and the closing makes the heart sounds.</p>
+            <p class="answer">The heart valves. They snap shut as soon as the pressure behind them drops, so blood can’t flow back the wrong way.</p>
             <span class="cite">cardio_week3.pdf, page 12</span>
           </div>
         </div>
@@ -90,7 +90,7 @@
       </div>
       <div class="tri" data-anim>
         <div class="well tri-card">
-          <div class="art art-words" aria-hidden="true"><span class="w w1">close</span><span class="w-link"></span><span class="w w2">snap shut</span></div>
+          <div class="art art-words" aria-hidden="true"><span class="w w1">flowing backwards</span><span class="w-link"></span><span class="w w2">backflow</span></div>
           <h3>your words, not theirs</h3>
           <p class="small">Say it your way. Zarp finds the page that says it theirs.</p>
         </div>
@@ -354,10 +354,10 @@
     while (raceOn) {
       race.classList.remove('s2', 's3', 's4');
       typed.textContent = '';
-      await wait(500);
-      for (const ch of text) { typed.textContent += ch; await wait(55); }
-      await wait(250); race.classList.add('s2');
-      await wait(1500); race.classList.add('s3');
+      await wait(250);
+      for (const ch of text) { typed.textContent += ch; await wait(38); }
+      await wait(150); race.classList.add('s2');
+      await wait(1200); race.classList.add('s3');
       await wait(900); race.classList.add('s4');
       await wait(4200);
     }

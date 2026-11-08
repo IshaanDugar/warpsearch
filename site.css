@@ -267,7 +267,8 @@ mark { background: none; color: var(--color-accent); }
 @keyframes sweep { 0% { top: -14px; opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
 .verdict { font: 400 0.8125rem/1.3 var(--font-outlier); color: var(--color-muted); opacity: 0; transition: opacity .4s; }
 .race.s3 .verdict { opacity: 1; }
-.race.s3 .lane--f { opacity: .5; }
+.race.s3 .lane--f { opacity: .75; }
+.race.s3 .verdict { color: var(--color-ink-2); }
 .race.s3 .lane--z { border-color: var(--color-accent); }
 .stack { display: flex; flex-wrap: wrap; gap: 4px; }
 .stack span { font: 400 0.6875rem/1 var(--font-outlier); padding: 4px 6px; border-radius: 5px; border: var(--rule-hair) solid var(--color-rule-2); color: var(--color-muted); transition: opacity .4s, max-height .4s; }
