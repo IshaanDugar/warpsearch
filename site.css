@@ -375,3 +375,5 @@ mark { background: none; color: var(--color-accent); }
   .beats .node, .fill, .badge { transition: none !important; }
   .w-link { transform: none; } .pg i { filter: none; }
 }
+
+.hero-text .hl { font-weight: 500; color: var(--color-accent); }
