@@ -38,7 +38,7 @@
         <p>Type whatever you remember from your notes, slides or PDFs. Zarp opens the exact file, on the right page.</p>
         <p>Use it on its own, or with the Claude and ChatGPT apps. No AI know-how needed.</p>
         <div class="actions">
-          <a class="btn btn--primary" href="#install">download zarp, free</a>
+          <a class="btn btn--primary" href="#install">get zarp, free</a>
           <a class="btn btn--secondary" href="#start">see the 3 steps</a>
         </div>
         <p class="small">Free for Windows and Mac. Two minutes to set up. No account needed.</p>
@@ -66,8 +66,8 @@
       <ol class="steps">
         <li class="well step">
           <span class="step-n">1</span>
-          <h3>download it</h3>
-          <p>Download, open the file, and it installs itself. <a href="#install">The steps are below</a>.</p>
+          <h3>install it</h3>
+          <p>Copy one line, paste it, press Enter. <a href="#install">The steps are below</a>, click by click.</p>
         </li>
         <li class="well step">
           <span class="step-n">2</span>
@@ -183,7 +183,7 @@
     <section id="needs" class="split">
       <div class="text">
         <h2>up and running before your coffee cools.</h2>
-        <p>Download it, pick the folders your notes live in, and press Start. Zarp connects itself to Claude and ChatGPT. Restart the app once and you’re done.</p>
+        <p>Install it, pick the folders your notes live in, and press Start. Zarp connects itself to Claude and ChatGPT. Restart the app once and you’re done.</p>
         <ul class="needs">
           <li><span>runs on</span><span>Windows 10 or 11, and Macs with an M1 chip or newer (most Macs from 2021 on).</span></li>
           <li><span>reads</span><span>PDFs (scanned ones too), slides, Word, Excel and Markdown. New files show up within a minute.</span></li>
@@ -200,7 +200,7 @@
     <section id="install" class="split split--top">
       <div class="text">
         <h2>go on, give it a page.</h2>
-        <p>One quick thing before you download.</p>
+        <p>One quick thing before you install.</p>
         <fieldset class="agree" id="agree">
           <legend class="small">One tick and you’re good to go.</legend>
           <label><input type="checkbox" required> <span>Got it: this is a free test version, so a few things might break. The test runs until 21 November 2026, and updates arrive by themselves. While it’s in testing, Zarp sends Ishaan what you search for, your file names and the bits of pages it found, so he can fix what goes wrong and make it save more for everyone. Never sold, never shared. Turns off when the full version launches. <a href="TERMS.txt">Beta terms</a>.</span></label>
@@ -211,44 +211,36 @@
         <p class="small" id="gate-note" aria-live="polite">Tick the box first.</p>
         <div class="well get-card" id="card-win">
           <h3>windows</h3>
-          <a class="btn btn--primary dl-link get-btn" data-gated href="https://github.com/IshaanDugar/zarp/releases/latest/download/Zarp-Beta-Setup.exe">download for windows</a>
           <ol class="mini">
-            <li>Open the downloaded file.</li>
-            <li>Windows may show a blue box saying it protected your PC. That’s normal for new apps from small makers. Click <b>More info</b>, then <b>Run anyway</b>.</li>
-            <li>Zarp installs and asks which folders to read.</li>
+            <li>Press <b>copy</b> below.</li>
+            <li>Press the <kbd>Windows</kbd> key, type <b>PowerShell</b> and press Enter. A blue or black window opens.</li>
+            <li>Right-click inside it to paste, then press Enter. Zarp installs by itself and asks which folders to read.</li>
           </ol>
+          <div class="shell-row">
+            <input id="ps-line" class="shell-cmd" readonly aria-label="PowerShell install command" value="irm https://ishaandugar.github.io/zarp/install.ps1 | iex">
+            <button class="btn btn--primary shell-copy" type="button" data-copy="ps-line" data-gated>copy</button>
+          </div>
+          <p class="small">This is the official installer for Zarp. It checks the download before installing, and no Windows warnings pop up.</p>
           <details class="alt">
-            <summary>Rather skip the blue box? Install with one line</summary>
-            <ol class="mini">
-              <li>Press copy.</li>
-              <li>Press the <kbd>Windows</kbd> key, type <b>PowerShell</b> and press Enter.</li>
-              <li>Right-click inside the window to paste, then press Enter.</li>
-            </ol>
-            <div class="shell-row">
-              <input id="ps-line" class="shell-cmd" readonly aria-label="PowerShell install command" value="irm https://ishaandugar.github.io/zarp/install.ps1 | iex">
-              <button class="btn btn--secondary shell-copy" type="button" data-copy="ps-line" data-gated>copy</button>
-            </div>
+            <summary>Rather download a normal installer?</summary>
+            <p class="small"><a href="https://github.com/IshaanDugar/zarp/releases/latest/download/Zarp-Beta-Setup.exe" class="dl-link" data-gated>Download Zarp for Windows</a> and open it. Windows may show a blue box saying it protected your PC. That’s normal for new apps from small makers: click <b>More info</b>, then <b>Run anyway</b>.</p>
           </details>
         </div>
         <div class="well get-card" id="card-mac">
           <h3>mac</h3>
-          <a class="btn btn--primary dl-link get-btn" data-gated href="https://github.com/IshaanDugar/zarp/releases/latest/download/Zarp-Beta-mac-arm64.zip">download for mac</a>
           <ol class="mini">
-            <li>Open the download and drag <b>Zarp Beta</b> into Applications.</li>
-            <li>Open it. The first time, your Mac says it can’t check the app. Open <b>System Settings</b>, then <b>Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>. Only once.</li>
-            <li>Zarp asks which folders to read.</li>
+            <li>Press <b>copy</b> below.</li>
+            <li>Press <kbd>Cmd+Space</kbd>, type <b>Terminal</b> and press Enter.</li>
+            <li>Press <kbd>Cmd+V</kbd> to paste, then press Enter. Zarp goes into Applications, opens and asks which folders to read.</li>
           </ol>
+          <div class="shell-row">
+            <input id="sh-line" class="shell-cmd" readonly aria-label="Terminal install command" value="curl -fsSL https://ishaandugar.github.io/zarp/install.sh | bash">
+            <button class="btn btn--primary shell-copy" type="button" data-copy="sh-line" data-gated>copy</button>
+          </div>
+          <p class="small">For Macs with an M1 chip or newer. It checks the download first, and there’s no “can’t verify the app” step.</p>
           <details class="alt">
-            <summary>Skip the Settings step: install with one line</summary>
-            <ol class="mini">
-              <li>Press copy.</li>
-              <li>Press <kbd>Cmd+Space</kbd>, type <b>Terminal</b> and press Enter.</li>
-              <li>Press <kbd>Cmd+V</kbd> to paste, then press Enter.</li>
-            </ol>
-            <div class="shell-row">
-              <input id="sh-line" class="shell-cmd" readonly aria-label="Terminal install command" value="curl -fsSL https://ishaandugar.github.io/zarp/install.sh | bash">
-              <button class="btn btn--secondary shell-copy" type="button" data-copy="sh-line" data-gated>copy</button>
-            </div>
+            <summary>Rather download it yourself?</summary>
+            <p class="small"><a href="https://github.com/IshaanDugar/zarp/releases/latest/download/Zarp-Beta-mac-arm64.zip" class="dl-link" data-gated>Download Zarp for Mac</a> and drag <b>Zarp Beta</b> into Applications. The first time, your Mac says it can’t check the app: open <b>System Settings</b>, then <b>Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>. Only once.</p>
           </details>
         </div>
         <div class="get-alt">
