@@ -197,3 +197,12 @@ kbd { font: 400 0.8em/1 var(--font-outlier); color: var(--color-ink); border: va
 @media (max-width: 860px) {
   .steps, .ways-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* download-first install (persona review, 2026-11-08) */
+.get-btn { justify-content: center; }
+.alt { border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-sm); display: grid; gap: var(--space-sm); }
+.alt[open] { gap: var(--space-sm); }
+.alt summary { cursor: pointer; font-size: var(--text-sm); color: var(--color-muted); }
+.alt summary:hover { color: var(--color-ink); }
+.alt .mini { margin-top: var(--space-sm); }
+.alt .shell-row { margin-top: var(--space-sm); }
